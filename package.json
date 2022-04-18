@@ -1,0 +1,12 @@
+{
+  "name": "wifiControlName",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alison Souza",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "puppeteer": "^13.5.2"
+  }
+}
