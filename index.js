@@ -7,10 +7,10 @@ const app = express();
 app.get("/", (_, res) => res.send("OK"));
 
 app.post("/blacklist", async (req, res) => {
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+  // const browser = await puppeteer.launch({
+  //   headless: true,
+  //   args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  // });
   // const page = await browser.newPage();
   // await page.goto(process.env.ACCESS_URL);
 
@@ -36,7 +36,7 @@ app.post("/blacklist", async (req, res) => {
 
   // await deviceFrame.click(process.env.BLACKLIST_DEVICE);
 
-  await browser.close();
+  // await browser.close();
 
   return res.status(200).json({
     message: "sucesso!",
