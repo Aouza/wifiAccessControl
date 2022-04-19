@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const app = express();
 
-app.get("/", (_, res) => res.send("OK"));
+app.get("/", (_, res) => res.send("OK!!!!!!!!!"));
 
 app.get("/blacklist", async (req, res) => {
   const browser = await puppeteer.launch({
@@ -39,7 +39,7 @@ app.get("/blacklist", async (req, res) => {
   await browser.close();
 
   res.status(200).send({
-    message: "sucesso!",
+    message: "sucesso!!!!!!!!!!!!",
   });
 });
 
