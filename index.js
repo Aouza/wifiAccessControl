@@ -1,4 +1,5 @@
-const puppeteer = require("puppeteer");
+// const puppeteer = require("puppeteer");
+const chromium = require("chrome-aws-lambda");
 const express = require("express");
 require("dotenv").config();
 
@@ -7,9 +8,12 @@ const app = express();
 app.get("/", (_, res) => res.send("OK"));
 
 app.post("/blacklist", async (req, res) => {
-  const browser = await puppeteer.launch({
+  const browser = await chromium.puppeteer.launch({
+    args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath,
     headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    ignoreHTTPSErrors: true,
   });
   const page = await browser.newPage();
   await page.goto(process.env.ACCESS_URL);
