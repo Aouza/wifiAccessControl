@@ -37,7 +37,6 @@ app.post("/blacklist", (req, res) => {
   // await deviceFrame.click(process.env.BLACKLIST_DEVICE);
 
   // await browser.close();
-
   return res.status(200).json({
     message: "sucesso!",
   });
