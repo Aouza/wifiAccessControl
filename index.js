@@ -12,7 +12,7 @@ app.post("/blacklist", async (req, res) => {
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
-  // await page.goto(process.env.ACCESS_URL);
+  await page.goto(process.env.ACCESS_URL);
 
   // await page.type("#txt_Username", process.env.USERNAME_ACCESS);
   // await page.type("#txt_Password", process.env.PASSWORD_ACCESS);
