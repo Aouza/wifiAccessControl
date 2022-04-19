@@ -9,7 +9,7 @@ app.get("/", (_, res) => res.send("OK"));
 app.get("/blacklist", async (req, res) => {
   const browser = await puppeteer.launch({
     headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    args: ["--no-sandbox"],
   });
   const page = await browser.newPage();
   await page.goto(process.env.ACCESS_URL);
