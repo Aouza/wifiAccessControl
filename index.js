@@ -12,10 +12,10 @@ app.get("/blacklist", async (req, res) => {
     args: ["--no-sandbox"],
   });
   const page = await browser.newPage();
-  await page.goto(process.env.ACCESS_URL);
+  await page.goto("http://192.168.100.1/");
 
-  await page.type("#txt_Username", process.env.USERNAME_ACCESS);
-  await page.type("#txt_Password", process.env.PASSWORD_ACCESS);
+  await page.type("#txt_Username", "iranetadmin");
+  await page.type("#txt_Password", "adminiranet");
 
   await page.click("#loginbutton");
 
@@ -32,9 +32,9 @@ app.get("/blacklist", async (req, res) => {
 
   const deviceFrame = await wifiDeviceFrame.contentFrame();
 
-  await deviceFrame.waitForSelector(process.env.BLACKLIST_DEVICE);
+  await deviceFrame.waitForSelector("#appBlackList_wifidev_1");
 
-  await deviceFrame.click(process.env.BLACKLIST_DEVICE);
+  await deviceFrame.click("#appBlackList_wifidev_1");
 
   await browser.close();
 
