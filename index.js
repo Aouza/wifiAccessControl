@@ -12,31 +12,31 @@ app.post("/blacklist", (req, res) => {
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
-  // await page.goto(process.env.ACCESS_URL);
+  await page.goto(process.env.ACCESS_URL);
 
-  // await page.type("#txt_Username", process.env.USERNAME_ACCESS);
-  // await page.type("#txt_Password", process.env.PASSWORD_ACCESS);
+  await page.type("#txt_Username", process.env.USERNAME_ACCESS);
+  await page.type("#txt_Password", process.env.PASSWORD_ACCESS);
 
-  // await page.click("#loginbutton");
+  await page.click("#loginbutton");
 
-  // await page.waitForNavigation();
+  await page.waitForNavigation();
 
-  // const fullContentFrame = await page.$("iframe[id='menuIframe']");
-  // const fullFrame = await fullContentFrame.contentFrame();
+  const fullContentFrame = await page.$("iframe[id='menuIframe']");
+  const fullFrame = await fullContentFrame.contentFrame();
 
-  // await fullFrame.click("#wifidevCnt");
+  await fullFrame.click("#wifidevCnt");
 
-  // const wifiDeviceFrame = await fullFrame.$(
-  //   "iframe[id='ContectdevmngtPageSrc']"
-  // );
+  const wifiDeviceFrame = await fullFrame.$(
+    "iframe[id='ContectdevmngtPageSrc']"
+  );
 
-  // const deviceFrame = await wifiDeviceFrame.contentFrame();
+  const deviceFrame = await wifiDeviceFrame.contentFrame();
 
-  // await deviceFrame.waitForSelector(process.env.BLACKLIST_DEVICE);
+  await deviceFrame.waitForSelector(process.env.BLACKLIST_DEVICE);
 
-  // await deviceFrame.click(process.env.BLACKLIST_DEVICE);
+  await deviceFrame.click(process.env.BLACKLIST_DEVICE);
 
-  // await browser.close();
+  await browser.close();
   return res.status(200).json({
     message: "sucesso!",
   });
