@@ -51,6 +51,7 @@ app.listen(process.env.PORT || 4000, () => {
 //   const browser = await puppeteer.launch({
 //     headless: true,
 //     args: ["--no-sandbox", "--disable-setuid-sandbox"],
+//     ignoreDefaultArgs: ["--disable-extensions"],
 //   });
 //   const page = await browser.newPage();
 //   await page.goto(process.env.ACCESS_URL);
